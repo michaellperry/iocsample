@@ -10,17 +10,16 @@ namespace IoCSample
 {
     public class SignUpController
     {
-        private readonly DatabaseConnection _connection;
+        private readonly SignUpService _service;
 
-        public SignUpController()
+        public SignUpController(SignUpService service)
         {
-            _connection = new DatabaseConnection("connectionstring");
+            _service = service;
         }
 
         public ControllerResponse Post(SignUpForm form)
         {
-            SignUpService service = new SignUpService(_connection);
-            bool ok= service.SignUp(form.Email, form.Password);
+            bool ok = _service.SignUp(form.Email, form.Password);
 
             if (!ok)
                 return new ControllerResponse("User already exists");
