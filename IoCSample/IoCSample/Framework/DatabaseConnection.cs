@@ -7,9 +7,8 @@ namespace IoCSample.Framework
 {
     public class DatabaseConnection
     {
-        public DatabaseConnection(string connectionString)
+        public DatabaseConnection(DatabaseConfiguration configuration)
         {
-            throw new NotImplementedException();
         }
 
         public SqlResult ExecuteQuery(string sql)
