@@ -44,10 +44,12 @@
     <Compile Include="Framework\Mailbox.cs" />
     <Compile Include="Framework\Message.cs" />
     <Compile Include="Framework\SqlResult.cs" />
+    <Compile Include="Services\SignUpService.cs" />
     <Compile Include="SignUpController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpForm.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

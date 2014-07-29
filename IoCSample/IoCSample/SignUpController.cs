@@ -4,39 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IoCSample.Framework;
+using IoCSample.Services;
 
 namespace IoCSample
 {
     public class SignUpController
     {
+        private readonly DatabaseConnection _connection;
+
+        public SignUpController()
+        {
+            _connection = new DatabaseConnection("connectionstring");
+        }
+
         public ControllerResponse Post(SignUpForm form)
         {
-            var connection = new DatabaseConnection("connectionstring");
+            SignUpService service = new SignUpService(_connection);
+            bool ok= service.SignUp(form.Email, form.Password);
 
-            var result = connection.ExecuteQuery("select * from user");
-
-            if (result.Next())
-            {
+            if (!ok)
                 return new ControllerResponse("User already exists");
-            }
-
-            connection.ExecuteNonQuery(String.Format(
-                "insert into user (username, password) values ({0}, {1})",
-                form.Email,
-                form.Password));
-
-            Mailbox mailbox = new Mailbox("donotreply@improvingenterprises.com");
-
-            Message message = new Message
-            {
-                To = form.Email,
-                Subject = "Welcome",
-                Body = String.Format("You signed up. Your password is {0}.", form.Password)
-            };
-
-            mailbox.Send(message);
-
-            return new ControllerResponse("OK");
+            else
+                return new ControllerResponse("OK");
         }
     }
 }
