@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application.cs" />
     <Compile Include="Framework\ControllerResponse.cs" />
     <Compile Include="Framework\DatabaseConnection.cs" />
     <Compile Include="Framework\Mailbox.cs" />
