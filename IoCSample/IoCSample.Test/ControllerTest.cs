@@ -11,13 +11,16 @@ namespace IoCSample.Test
         [TestMethod]
         public void PostCallsService()
         {
-            DatabaseConnection connection = new DatabaseConnection("connectionstring");
-            SignUpController controller = new SignUpController(new SignUpService(connection));
+            FakeSignUpService signUpService = new FakeSignUpService();
+            SignUpController controller = new SignUpController(signUpService);
+
             controller.Post(new SignUpForm
             {
                 Email = "email@me.com",
                 Password = "secret"
             });
+
+            signUpService.VerifyWasCalled("email@me.com", "secret");
         }
     }
 }

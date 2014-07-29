@@ -44,6 +44,7 @@
     <Compile Include="Framework\Mailbox.cs" />
     <Compile Include="Framework\Message.cs" />
     <Compile Include="Framework\SqlResult.cs" />
+    <Compile Include="Services\ISignUpService.cs" />
     <Compile Include="Services\SignUpService.cs" />
     <Compile Include="SignUpController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,7 +9,6 @@ namespace IoCSample.Framework
     {
         public ControllerResponse(string result)
         {
-            throw new NotImplementedException();
         }
     }
 }

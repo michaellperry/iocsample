@@ -10,9 +10,9 @@ namespace IoCSample
 {
     public class SignUpController
     {
-        private readonly SignUpService _service;
+        private readonly ISignUpService _service;
 
-        public SignUpController(SignUpService service)
+        public SignUpController(ISignUpService service)
         {
             _service = service;
         }

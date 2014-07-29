@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IoCSample.Services
 {
-    public class SignUpService
+    public class SignUpService : ISignUpService
     {
         private readonly DatabaseConnection _connection;
 
